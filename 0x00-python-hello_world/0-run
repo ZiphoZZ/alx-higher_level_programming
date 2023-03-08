@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$PYCODE" > /tmp/temp.py
+python3 ./$PYFILE
