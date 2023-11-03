@@ -45,4 +45,5 @@ lib.print_python_string(s)
 #   value: スプーンは存在しない
 # [.] string object info
 #   [ERROR] Invalid String Object
-# julien@ubuntu:~/0x07. Pyhton Strings$
+# julien@ubuntu:~/0x07. Pyhton Strings$ 
+
