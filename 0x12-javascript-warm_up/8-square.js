@@ -1,12 +1,17 @@
 #!/usr/bin/node
-const process = require('process');
-const x = parseInt(process.argv[2]);
-const message = 'Missing size';
-if (isNaN(x)) {
-  console.log(message);
+const x = process.argv[2];
+
+if (!parseInt(x)) {
+  console.log('Missing size');
 } else {
   for (let i = 0; i < x; i++) {
-    console.log('X'.repeat(x));
+    let y = 0;
+    let myVar = '';
+
+    while (y < x) {
+      myVar = myVar + 'X';
+      y++;
+    }
+    console.log(myVar);
   }
 }
-
