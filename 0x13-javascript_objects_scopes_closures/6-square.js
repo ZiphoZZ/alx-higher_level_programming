@@ -1,20 +1,17 @@
 #!/usr/bin/node
-const square = require('./5-square');
-class Square extends square {
-  /**
-   * @property {method} charPrint - prints the rectangle using the character c
-   * @returns void
-   */
+const Squeare5 = require('./5-square');
+
+class Square extends Squeare5 {
   charPrint (c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-    for (let i = 0; i < this.height; i++) {
-      let s = '';
-      for (let j = 0; j < this.width; j++) {
-        s += c;
+    const Print = 'X';
+    if (!c) {
+      for (let x = 0; x < this.width; x++) {
+        console.log(Print.repeat(this.height));
       }
-      console.log(s);
+    } else {
+      for (let y = 0; y < this.width; y++) {
+        console.log(c.repeat(this.width));
+      }
     }
   }
 }
