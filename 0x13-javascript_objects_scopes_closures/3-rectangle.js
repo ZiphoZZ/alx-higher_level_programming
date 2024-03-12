@@ -1,25 +1,20 @@
 #!/usr/bin/node
 class Rectangle {
   constructor (w, h) {
-    if (w > 0 && h > 0) {
+    if (!w || !h) {
+      return;
+    }
+    if (h > 0 && w > 0) {
       this.width = w;
       this.height = h;
     }
   }
 
-  /**
-   * @property {method} print - prints the rectangle using the character X
-   * @returns void
-   */
   print () {
-    for (let i = 0; i < this.height; i++) {
-      let s = '';
-      for (let j = 0; j < this.width; j++) {
-        s += 'X';
-      }
-      console.log(s);
+    const print = 'X';
+    for (let x = 0; x < this.height; x++) {
+      console.log(print.repeat(this.width));
     }
   }
 }
-
 module.exports = Rectangle;
