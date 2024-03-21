@@ -1,24 +1,30 @@
-
 #!/usr/bin/python3
-""" Script that lists all states starting with N"""
+"""
+This script takes in an argument and
+displays all values in the states
+where `name` matches the argument
+from the database `hbtn_0e_0_usa`.
+This time the script is safe from
+MySQL injections!
+"""
 
-import MySQLdb
+import MySQLdb as db
 from sys import argv
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    """
+    Access to the database and get the states
+    from the database.
+    """
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
 
-    HOST = 'localhost'
-    PORT = 3306
-    MY_USER = argv[1]
-    MY_PSWD = argv[2]
-    MY_DB = argv[3]
-    NAME = argv[4]
-    db = MySQLdb.connect(host=HOST, user=MY_USER, password=MY_PSWD,
-                         db=MY_DB, port=PORT)
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (NAME,))
-    row_query = cur.fetchall()
-    for rq_print in row_query:
-        print(rq_print)
-    cur.close()
-    db.close()
+    db_cursor = db_connect.cursor()
+    db_cursor.execute(
+        "SELECT * FROM states WHERE name LIKE \
+                    BINARY %(name)s ORDER BY states.id ASC", {'name': argv[4]})
+
+    rows_selected = db_cursor.fetchall()
+
+    for row in rows_selected:
+        print(row)
