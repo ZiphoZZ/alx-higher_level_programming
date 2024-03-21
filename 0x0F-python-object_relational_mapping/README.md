@@ -1,1 +1,1 @@
-This readme provides information for obect relational mapping
+This is the beginning of the object realtional-mapping
