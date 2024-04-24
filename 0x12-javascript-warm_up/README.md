@@ -1,1 +1,1 @@
-The information contained in this readme is for the files named below
+The infomation contained in this readme is for files in the javascript warmup project
